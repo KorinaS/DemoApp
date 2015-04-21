@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  # get 'tweets/new'
-
+  get 'tweets/new'
+  get 'tweets/index'
   # get 'tweets/create'
 
   # get 'sessions/new'
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  resources :tweets, only: [:new, :create]
+  resources :tweets, only: [:new, :create,:show]
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:show]
  

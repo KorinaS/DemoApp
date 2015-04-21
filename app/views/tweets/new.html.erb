@@ -1,6 +1,7 @@
 <p>
 	<%= form_for :tweet, url: tweets_path, method: :post do |f| %>
-	<%= f.text_field :message %>
+	<%= f.text_field :text %>
 	<%= f.submit "Send tweet" %>
+	<%= render 'shared/error_messages' %> 
 	<% end %>
 </p>

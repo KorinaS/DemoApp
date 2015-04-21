@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tweets
   def self.from_omniauth(auth)
     user = where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
       user.provider = auth.provider
