@@ -9,6 +9,7 @@ class TweetsController < ApplicationController
 
  def create
     @tweet = Tweet.new(tweet_params)
+    @tweet.user_id = current_user.id
     if @tweet.save
       current_user.tweet(tweet_params[:text])
       redirect_to root_url
@@ -18,6 +19,6 @@ class TweetsController < ApplicationController
   end
 
   def tweet_params
-      params.require(:tweet).permit(:text, :timer, :user_id)
+      params.require(:tweet).permit(:text, :timer)
     end
 end
