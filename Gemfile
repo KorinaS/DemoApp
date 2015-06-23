@@ -28,6 +28,9 @@ gem 'spring',        group: :development
 gem 'twitter', '~> 5.3.1'
 gem 'omniauth-twitter', '~> 1.0.1'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'sinatra'
+gem 'slim'
+gem "sidekiq-cron", "~> 0.2.0"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
