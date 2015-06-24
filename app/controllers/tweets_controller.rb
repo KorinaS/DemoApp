@@ -11,7 +11,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
-      TweetsWorker.perform_at(10.seconds.from_now, @tweet.id, @current_user.id)
+      TweetsWorker.perform_at(@tweet.timer, @tweet.id, @tweet.user_id)
       redirect_to root_url
     else
       render :new

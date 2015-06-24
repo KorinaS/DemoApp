@@ -4,7 +4,7 @@
 	<%= f.submit "Send tweet" %>
 	</br>
 	</br>
-	<%= f.time_select :timer %>
+	<%= f.time_select :timer, :default => Time.now %>
 	<%= render 'shared/error_messages' %> 
 	<% end %>
 </p>
