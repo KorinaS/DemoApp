@@ -4,13 +4,14 @@ class TweetsController < ApplicationController
   end
 
   def index
-  @tweet = Tweet.all 
+    @tweet = Tweet.all 
   end
 
  def create
     @tweet = Tweet.new(tweet_params)
     @tweet.user_id = current_user.id
     if @tweet.save
+      flash[:success] = "Your tweet is scheduled!"
       TweetsWorker.perform_at(@tweet.timer, @tweet.id, @tweet.user_id)
       redirect_to root_url
     else

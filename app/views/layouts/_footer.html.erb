@@ -1,0 +1,9 @@
+<footer>
+<%if current_user %>
+	Logged in as: <%= current_user.name %>
+<%else%>
+	<%= link_to "New to Twitter? Sign up!", 'https://twitter.com/signup' %>
+<%end%>
+
+<small><%= "\u00A9 TweetTimer 2015" %></small>
+</footer>

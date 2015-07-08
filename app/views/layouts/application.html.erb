@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Demo</title>
+  <title>TweetTimer</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-<div>
-<% if current_user %>
-	Signed in as <strong> <%= current_user.name %></strong>!
-	<%= link_to "Sign out!", signout_path, id: "sign_out" %>
-	<% else %>
-	<%= link_to "Sign in with Twitter", "/auth/twitter", id: "sign_in" %>
-	<% end %>
+<div class="container">
+<div class="row">
+	<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 ">
+ 			<%= render 'layouts/header' %>
+ 			<% flash.each do |message_type, message| %>
+       <div class="alert alert-<%= message_type %>"><%= message %></div>
+     <% end %>
+		<div>
+			<%= yield %>
+ 			<%= render 'layouts/footer' %>
+		</div>
 	</div>
-	<div>
-<%= yield %>
+</div>
 </div>
 </body>
 </html>

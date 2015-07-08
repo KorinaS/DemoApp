@@ -31,6 +31,7 @@ gem 'dotenv-rails', :groups => [:development, :test]
 gem 'sinatra'
 gem 'slim'
 gem "sidekiq-cron", "~> 0.2.0"
+gem 'bootstrap-sass',       '3.2.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

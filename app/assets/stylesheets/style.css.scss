@@ -1,0 +1,55 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+  background-image: image-url("");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+#logo {
+  float: left;
+  font-size: 1.5em;
+  letter-spacing: -2px;
+  color: grey;
+}
+#logo-twitter{
+	heihgt: 20px;
+	width: 20px;
+  margin:5px;
+}
+
+footer {
+  margin-top: 45px; 
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+}
+
+footer small {
+  float: right;
+}
+h1{
+  text-align: center;
+  font-size: 2.7em;
+}
+
+h2 {
+  text-align: center;
+  color:  #777;
+  font-size: 1.6em;
+  font-weight: lighter;
+}
+h3 {
+  color: #00aced;
+  font-size: 1.2em;
+  font-weight: lighter;
+  margin-bottom: -5px;
+}
+p{
+  margin-top: 5px;
+  font-size: 1.2em;
+}
+
+

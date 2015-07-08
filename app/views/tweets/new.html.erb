@@ -1,10 +1,25 @@
-<p>
-	<%= form_for :tweet, url: tweets_path, method: :post do |f| %>
-	<%= f.text_field :text %>
-	<%= f.submit "Send tweet" %>
-	</br>
-	</br>
-	<%= f.time_select :timer, :default => Time.now %>
-	<%= render 'shared/error_messages' %> 
+
+<div class="row">
+	<% if current_user %>
+		<%= render 'shared/error_messages' %>
+	
+			<%= form_for :tweet, url: tweets_path, method: :post do |f| %>
+			<%= f.text_area :text, :rows => "6", class: "panel panel-success col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 col-xs-offset-2" %>
+		
+  	<div class="row">
+   	 <div class="col-lg-4 col-lg-offset-3 col-md-4 col-md-offset-3 col-sm-4 col-sm-offset-3 col-xs-4 col-xs-offset-3"><%= f.time_select :timer, :default => Time.now%></div>
+   	 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"> <%= f.submit "Send tweet", class: "btn btn-primary"%></div>
+
+</div>
 	<% end %>
-</p>
+	<% else %>
+		<div class="col-lg-8 col-lg-offset-2 col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-8 col-xs-offset-2">
+			<div class="list-group-item">
+				
+				<h1>Welcome to TweetTimer!</h1>
+				<h2 class="list-group-item-text"> Please log in with your Twitter account to set timer and send tweets at specified time.</h2></br>
+				<h1 class="list-group-item-heading"><%= link_to image_tag("twitter-logo-blue.png", id: "logo-twitter" )%></h1>
+			</div>
+		</div>
+	<% end %> 
+</div>

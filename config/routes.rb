@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   get 'tweets/new'
   get 'tweets/index'
+  get 'home/about'
   # get 'tweets/create'
 
   # get 'sessions/new'
@@ -10,18 +11,14 @@ Rails.application.routes.draw do
 
   # get 'sessions/destroy'
 
-  # get 'home/show'
-
-
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   
   get 'signout', to: 'sessions#destroy', as: 'signout'
-  resources :tweets, only: [:new, :create,:index, :new]
+  resources :tweets, only: [:new, :create,:index]
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
- 
-  root to: 'home#show'
+  resources :home, only: [:about]
+  root to: 'tweets#new'
   mount Sidekiq::Web, at: '/sidekiq'
 
   
