@@ -2,22 +2,16 @@
 <div class="navbar navbar-default">
     <div class="navbar-header pull-left">
         <p class="navbar-text" style="overflow: hidden; white-space: nowrap;">
-           <%= link_to image_tag("twitter-logo-blue.png", id: "logo-twitter" )%>
       		<%= link_to "TweetTimer", root_path, id: "logo" %> 
+           <%= link_to image_tag("twitter-logo-blue.png", id: "logo-twitter" )%>
         </p>
     </div>
     <div class="navbar-header pull-right">
         <p class="navbar-text">
     	   	 <% if current_user %>
-    	   		 <button class="btn btn-succes">
-          			<span class="glyphicon glyphicon-log-out"></span> 
-          			<%= link_to "Log out", signout_path, id: "sign_out" %>
-       		 	</button>
+          			<%= link_to "Log out", signout_path, class: "btn btn-primary"%>
 	  		<% else %>
-				<button class="btn btn-succes">
-          			<span class="glyphicon glyphicon-log-in"></span>
-          			<%= link_to "Log in", "/auth/twitter", id: "sign_in" %>
-        		</button>
+          			<%= link_to "Log in", "/auth/twitter", class: "btn btn-primary" %>
 	  		<% end %>
 	  	</p>
     </div>
